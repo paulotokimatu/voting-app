@@ -1,0 +1,14 @@
+<div class="navbar">
+    <a href="/"><span id="name-app">Voting App</span></a>
+    <span id="user-control">Hello, 
+        <% if (user) {%>
+            <%= user.twitter.name %> | <a href="/profile">Profile</a> | <a href="/logout">Logout</a>
+        <% } else {%>
+            stranger | <a href="/auth/twitter">Login</a>
+        <% }%>
+    </span>
+</div>
+<div class="main">
+    <% if (error && error.length > 0) {%>
+        <div class="flash-message"><strong><%= error %></strong></div>
+    <% } %>

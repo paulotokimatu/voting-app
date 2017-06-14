@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Poll</title>
+        <link href="/css/common.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+    </head>
+    <body>
+        <% include ../public/partials/header %>
+            <h1>Polls created by: <%= user.twitter.name %></h1>
+            <% user.polls.forEach((poll, index) => { %>
+                <a href="/polls/<%= poll._id %>">
+                    <div class="one-poll">
+                        <h1> <%= poll.title %> </h1>
+                        Number of votes: <%= poll.votes.reduce(function(a, b){return a+b;}) %>
+                    </div>
+                </a>
+            <% }) %>
+        </div>
+        
+        <% include ../public/partials/footer %>
+    </body>
+</html>

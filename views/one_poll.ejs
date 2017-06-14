@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Poll</title>
+        <link href="/css/common.css" rel="stylesheet">
+        <link href="/css/one_poll.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+    </head>
+    <body>
+        <% include ../public/partials/header %>
+            <h1 id="poll-title"><%= poll.title %></h1>
+            <h3 id="poll-creator">Created by <%= poll.creator.twitter.name %></h2>
+            
+            <form method="POST" action="/update-poll">
+                <input type="hidden" value="<%= poll._id %>" name="_id" />
+                <% poll.options.forEach((option, index) => { %>
+                <label class="poll">
+                    <input type="radio" name="option" value="<%= option %>">
+                    <span class="poll-options"> <%= option %> </span>
+                    <span class="poll-votes"> <%= poll.votes[index] %> </span>
+                    <br>
+                </label>
+                <% }) %>
+                <div class="poll-buttons">
+                    <input type="submit" value="Submit">
+                    <% if (user) {%>
+                        <button id="btn-delete">Delete</button>
+                    <% } %>
+                </div>
+                
+            </form>
+            
+            <div class="chart">
+                <canvas id="poll-chart"></canvas>
+            </div>
+        </div>
+        
+        <% include ../public/partials/footer %>
+        
+        <script type="text/javascript" src="/js/Chart.min.js"></script>
+        <script type="text/javascript" src="/ajax_calls.js"></script>
+        <script type="text/javascript" src="/js/one_poll.js"></script>
+    </body>
+</html>

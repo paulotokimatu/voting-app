@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Voting App - FCC</title>
+        <link href="css/index.css" rel="stylesheet">
+        <link href="css/common.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+    </head>
+    <body>
+        <% include ../public/partials/header %>
+        
+            <div class="main-content">
+                <h1>Voting App - FCC</h1>
+            </div>
+            <h1>Add a new poll</h1>
+            <div class="add-poll">
+                
+                <form action="/add-poll" method="post">
+                    <div class="add-poll-control">
+                        <strong>Title of the poll:</strong><input class="add-poll-title" type="text" placeholder="Title" name="title" size=40 required/>
+                        <button id="btn-add-option">More</button>
+                        <button id="btn-remove-option">Less</button>
+                        <input type="submit" value="Submit"/>
+                    </div>
+                    <div id="form-add-poll-options">
+                        <div><input type="text" placeholder="Option 1" name="options" size=30 required/></div>
+                        <div><input type="text" placeholder="Option 2" name="options" size=30 required/></div>
+                    </div>
+                </form>
+            </div>
+                
+            <hr>
+            <div class="poll-list-header">
+                <h1>Vote in our polls!</h1>
+                <button id="get-polls">Update</button>
+            </div>
+            <div id="all-polls"></div>
+        </div>
+        
+        <% include ../public/partials/footer %>
+        
+        <script type="text/javascript" src="/ajax_calls.js"></script>
+        <script type="text/javascript" src="/js/index.js"></script>
+        <script type="text/javascript" src="controllers/client.poll_handler.js"></script>
+    </body>
+</html>

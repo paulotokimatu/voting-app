@@ -1,0 +1,26 @@
+#poll-title {
+    background: #114b5f;
+    color: #d4f5f5;
+    margin: 0;
+    padding: 20px;
+}
+#poll-creator {
+    text-align: right;
+    margin: 5px;
+}
+input[type=radio] {
+    margin: 5px;
+}
+.poll {
+    font-size:1.3em;
+}
+.poll-votes {
+    display: none;
+}
+.poll-buttons {
+    margin: 20px 0;
+}
+.chart {
+    width: 60%;
+    margin: auto;
+}

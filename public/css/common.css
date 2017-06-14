@@ -1,0 +1,107 @@
+/*
+Colors:
+Dark blue: #114b5f
+Light blue: #d4f5f5
+Dark grey: #353238
+Almost white: #f7f0f0
+Red: #993955
+*/
+
+body {
+    color: #353238;
+    background: #d4f5f5;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    align-items: center;
+    background: #353238;
+    color: #f7f0f0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.navbar a {
+    color: inherit;
+    text-decoration: underline;
+}
+.navbar a:hover {
+    color: #d4f5f5;
+}
+.navbar #name-app {
+    font-size: 1.5em;
+    margin: 0;
+}
+.navbar #user-control {
+    text-align: right;
+}
+.flash-message {
+    border: 2px solid #353238;
+    margin: 10px 0;
+    padding: 5px;
+    text-align: center;
+}
+
+button, input[type=submit] {
+    border: 2px solid #114b5f;
+    background: #d4f5f5;
+    color: #114b5f;
+    cursor: pointer;
+    font-size: 16px;
+    margin : 0 5px;
+    padding: 3px;
+    transition: all 0.3s;
+}
+button:hover, input[type=submit]:hover {
+    background: #114b5f;
+    border: 2px solid #114b5f;
+    color: #d4f5f5;
+}
+button:disabled {
+    cursor: not-allowed;
+}
+.main {
+    margin: auto;
+    max-width: 800px;
+    padding-top: 30px;
+    width: 70%;
+}
+.one-poll {
+    background: #993955;
+    box-shadow: 3px 3px 5px #353238;
+    color: #f7f0f0;
+    margin: 10px 0;
+    /*border: 3px solid #114b5f;*/
+    padding: 10px 15px;
+    transition: all 0.3s;
+}
+.one-poll:hover {
+    box-shadow: 3px 3px 10px #114b5f;
+    padding-left: 25px;
+}
+.one-poll h1 {
+    margin: 0 0 5px 0;
+}
+a {
+    color: inherit;
+    text-decoration: none; /* no underline */
+}
+.footer {
+    margin: 30px auto;
+    text-align: center;
+    width: 30%;
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    width: 95%;
+  }
+}
+
+@media screen and (max-device-width: 736px) and (orientation : portrait) {
+  .main {
+    width: 100%;
+  }
+}
