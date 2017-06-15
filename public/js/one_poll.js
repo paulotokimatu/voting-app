@@ -19,12 +19,15 @@ for (var i = 0; i < pollOptions.length; i++) {
 var apiUrl = baseUrl + "/polls/" + pollId;
 
 var btnDelete = document.getElementById("btn-delete");
-btnDelete.addEventListener("click", (e) => {
-    btnDelete.innerText  = "Please wait...";
-    btnDelete.disabled = "true";
-    e.preventDefault();
-    ajaxRequest('DELETE', apiUrl, deletedPoll);
-});
+if (btnDelete) {
+    btnDelete.addEventListener("click", (e) => {
+        btnDelete.innerText  = "Please wait...";
+        btnDelete.disabled = "true";
+        e.preventDefault();
+        ajaxRequest('DELETE', apiUrl, deletedPoll);
+    });
+}
+
 
 
 //Plotting
