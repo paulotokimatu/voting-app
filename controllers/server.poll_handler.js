@@ -1,8 +1,6 @@
 var Polls = require("../models/polls.js");
 var Users = require("../models/users.js");
 
-var baseUrl = "https://fcc-api-projects-tokimatu.c9users.io";
-
 function PollHandler() {
     this.getPolls = function(req, res) {
         Polls.find({}, (err, poll) => {
@@ -15,7 +13,7 @@ function PollHandler() {
     this.addPoll = function(req, res, poll) {
         //Check if the user typed all fileds correctly
         if (poll.title === "" || poll.options.length < 2) {
-            res.redirect(baseUrl);
+            res.redirect("/");
         }
         else {
             Users.find({"twitter.id": req.user.twitter.id}, (err, user) => {
@@ -29,7 +27,7 @@ function PollHandler() {
                     var pollsCurrentUser = user[0].polls;
                     pollsCurrentUser.push(newPoll._id);
                     Users.update({"twitter.id": req.user.twitter.id}, {polls: pollsCurrentUser}, () => {
-                        res.redirect(baseUrl + "/polls/" + newPoll._id);
+                        res.redirect("/polls/" + newPoll._id);
                     });
                 });
             });

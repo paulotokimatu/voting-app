@@ -1,8 +1,8 @@
 (function() {
     var btnGetPolls = document.getElementById("get-polls");
     var allPolls = document.getElementById("all-polls");
-    var apiUrl = 'https://fcc-api-projects-tokimatu.c9users.io/get-polls';
-    
+    var apiUrl = window.location.protocol + "//" + window.location.hostname + "/get-polls";
+
     //Function to check when the document is fully loaded
     function ready (fn) {
         if (typeof fn !== 'function') {

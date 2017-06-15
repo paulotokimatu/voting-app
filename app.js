@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 var passport = require("passport");
 var session = require('express-session');
 var flash = require("connect-flash");
+var baseUrl = require('url');
 
 mongoose.Promise = Promise;
 
@@ -43,6 +44,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 routes(app);
 
+var os = require("os");
+
+
 app.listen((process.env.PORT || 3000), () => {
+    console.log(os);
     console.log("Server up");
 });
