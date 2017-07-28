@@ -8,6 +8,7 @@ var passport = require("passport");
 var session = require('express-session');
 var flash = require("connect-flash");
 var baseUrl = require('url');
+require('dotenv').config();
 
 mongoose.Promise = Promise;
 
@@ -23,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Setting sessions and passport to work with auth
 app.use(session({
-  secret: 'cpGpUbYuabB1z9CsxHvU',
+  secret: process.env.SESSION_SECRET,
   resave: true,
   saveUninitialized: true
 }));
@@ -44,10 +45,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 routes(app);
 
-var os = require("os");
-
 
 app.listen((process.env.PORT || 3000), () => {
-    console.log(os);
     console.log("Server up");
 });
